@@ -47,8 +47,8 @@ int main(int argc, char *argv[])
 
 	std::cout << "print the number of the gate :" << std::endl;
 	std::cout << graph.get_gates().size() << std::endl;
-	
-	std::cout << "print the gate type of the gate:" << std::endl;
+
+	std::cout << "print the gate type of the gates:" << std::endl;
 	std::cout << graph.gate(0).get_type() << std::endl;
 	std::cout << graph.gate(1).get_type() << std::endl;
 	std::cout << graph.gate(2).get_type() << std::endl;
