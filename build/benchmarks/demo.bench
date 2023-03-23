@@ -1,0 +1,14 @@
+INPUT(1)
+INPUT(2)
+INPUT(3)
+INPUT(4)
+OUTPUT(9)
+OUTPUT(10)
+
+6 = and(1,2)
+5 = and(2,3)
+7 = and(2,4)
+8 = not(5)
+9 = and(6,8)
+10 = and(7,8)
+

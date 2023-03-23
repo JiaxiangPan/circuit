@@ -1,0 +1,26 @@
+[
+{
+  "directory": "C:/Users/panjiaxiang7/Desktop/circuit/build",
+  "command": "D:\\mingw64\\bin\\g++.exe  @CMakeFiles/test.dir/includes_CXX.rsp -g -o CMakeFiles\\test.dir\\main.cpp.obj -c C:\\Users\\panjiaxiang7\\Desktop\\circuit\\main.cpp",
+  "file": "C:/Users/panjiaxiang7/Desktop/circuit/main.cpp",
+  "output": "CMakeFiles/test.dir/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/panjiaxiang7/Desktop/circuit/build",
+  "command": "D:\\mingw64\\bin\\g++.exe  @CMakeFiles/test.dir/includes_CXX.rsp -g -o CMakeFiles\\test.dir\\src\\iscas89_parser.cpp.obj -c C:\\Users\\panjiaxiang7\\Desktop\\circuit\\src\\iscas89_parser.cpp",
+  "file": "C:/Users/panjiaxiang7/Desktop/circuit/src/iscas89_parser.cpp",
+  "output": "CMakeFiles/test.dir/src/iscas89_parser.cpp.obj"
+},
+{
+  "directory": "C:/Users/panjiaxiang7/Desktop/circuit/build",
+  "command": "D:\\mingw64\\bin\\g++.exe  @CMakeFiles/test.dir/includes_CXX.rsp -g -o CMakeFiles\\test.dir\\src\\circuit_graph.cpp.obj -c C:\\Users\\panjiaxiang7\\Desktop\\circuit\\src\\circuit_graph.cpp",
+  "file": "C:/Users/panjiaxiang7/Desktop/circuit/src/circuit_graph.cpp",
+  "output": "CMakeFiles/test.dir/src/circuit_graph.cpp.obj"
+},
+{
+  "directory": "C:/Users/panjiaxiang7/Desktop/circuit/build",
+  "command": "D:\\mingw64\\bin\\g++.exe  @CMakeFiles/test.dir/includes_CXX.rsp -g -o CMakeFiles\\test.dir\\src\\log.cpp.obj -c C:\\Users\\panjiaxiang7\\Desktop\\circuit\\src\\log.cpp",
+  "file": "C:/Users/panjiaxiang7/Desktop/circuit/src/log.cpp",
+  "output": "CMakeFiles/test.dir/src/log.cpp.obj"
+}
+]
