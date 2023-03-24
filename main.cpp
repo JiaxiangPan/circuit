@@ -47,7 +47,10 @@ int main(int argc, char *argv[])
 		std::cout << v << " ";
 	}
 	std::cout << std::endl;
-
+	std::cout << "++++++++++++++++++++++++++++++++++++++++++++++++++" <<std::endl;
+	std::cout << "The name of the m_line[0] ~ m_line[6]: " << std::endl;
+	std::cout << graph.line(0).name << " " << graph.line(1).name << " " << graph.line(2).name << " " << graph.line(3).name << " " << graph.line(4).name << " " << graph.line(5).name << " " << graph.line(6).name << std::endl;
+	std::cout << "++++++++++++++++++++++++++++++++++++++++++++++++++" <<std::endl;
 	std::cout << "Print the number of the gate :" << graph.get_gates().size() << std::endl;
 	std::cout << "Print the gate type of the gates:" << std::endl;
 	std::cout << graph.gate(0).get_type() << std::endl;
@@ -56,17 +59,34 @@ int main(int argc, char *argv[])
 	std::cout << graph.gate(3).get_type() << std::endl;
 	std::cout << graph.gate(4).get_type() << std::endl;
 	std::cout << graph.gate(5).get_type() << std::endl;
-
+	std::cout << "++++++++++++++++++++++++++++++++++++++++++++++++++" <<std::endl;
 	std::cout << "The source of the line(6) is ： " << std::endl;
 	std::cout << graph.line(6).source << std::endl;
-
+	std::cout << "++++++++++++++++++++++++++++++++++++++++++++++++++" <<std::endl;
 	std::cout << "The index of the input line with the Nand gate is ： " << std::endl;
-	std::vector<line_idx> v_in = graph.gate(0).inputs();
-	for(auto v : v_in)
+	std::vector<line_idx> v_Nand_idx = graph.gate(0).inputs();
+	for(auto v : v_Nand_idx)
 	{
 		std::cout << v << " ";
 	}
 	std::cout << std::endl;
+	std::cout << "The index of the input line with the Nor gate is ： " << std::endl;
+	std::vector<line_idx> v_Nor_idx = graph.gate(1).inputs();
+	for(auto v : v_Nor_idx)
+	{
+		std::cout << v << " ";
+	}
+	std::cout << std::endl;
+
+	std::cout << "The index of the destination of G3gat is ： " << std::endl;
+	std::set<gate_idx> line_to_desination = graph.line(2).destination_gates;//输入线的destination的index
+	for(auto s : line_to_desination)
+	{
+		std::cout << s << " ";
+	}
+	std::cout << std::endl;
+	std::cout << " The total number of wires in the circuit is : " << std::endl;
+	std::cout << graph.total_line_number() << std::endl;
 
 	return 0;
 }

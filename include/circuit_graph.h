@@ -27,7 +27,7 @@ struct Line
 {
 	void connect_as_input(gate_idx gate)
 	{
-		destination_gates.insert(gate);
+		destination_gates.insert(gate);  //
 	}
 	gate_idx source = NULL_INDEX;         // nullptr means input port
 	std::set<gate_idx> destination_gates;
@@ -126,7 +126,7 @@ public:
 	Gate& gate(const gate_idx& idx) { return m_gates[idx]; }
 
 	const Line& get_line(const line_idx &idx) const { return m_lines[idx]; }
-	Line& line(const line_idx &idx) { return m_lines[idx]; }
+	Line& line(const line_idx &idx) { return m_lines[idx]; }//根据索引来访问访问线Line 进而可以访问struct Line中的成员
 
 	const std::vector<line_idx> &get_inputs() const;
 	std::vector<line_idx> &inputs() { return m_inputs; }
@@ -142,6 +142,8 @@ public:
 
 	line_idx ensure_line(const std::string &name);
 
+	int total_line_number() { return m_name_to_line_idx.size(); }
+	//无论是单纯的输入输出还是中间连线都是经过ensure_line来添加index，ensure_line又用到了m_name_toline_index。故可以返回所有连线的数量
 private:
 	std::vector<Line> m_lines;
 	std::vector<Gate> m_gates;
@@ -149,6 +151,6 @@ private:
 	std::vector<line_idx> m_inputs;
 	std::vector<line_idx> m_outputs;
 
-	std::unordered_map<std::string, line_idx> m_name_to_line_idx;
+	std::unordered_map<std::string, line_idx> m_name_to_line_idx; //存储了所有的name及其对应的index
 };
 #endif
