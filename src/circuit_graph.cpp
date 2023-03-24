@@ -81,48 +81,49 @@ gate_idx CircuitGraph::add_gate(Gate::Type type, const std::vector<std::string>&
 
 	m_gates.emplace_back(type, p_output, std::move(inputs));
 	gate_idx gate = m_gates.size() - 1;
-	m_lines[p_output].source = gate;
+	m_lines[p_output].source = gate;//将新增加的门的索引赋值给输出线的源
 
-	for (size_t i = 0; i < m_gates[gate].get_inputs().size(); ++i) {
-		m_lines[m_gates[gate].get_inputs().at(i)].connect_as_input(gate);
+	for (size_t i = 0; i < m_gates[gate].get_inputs().size(); ++i) 
+	{
+		m_lines[m_gates[gate].get_inputs().at(i)].connect_as_input(gate);//将输入线的destination_gates中，插入门的索引
 	}
 
 	// Gate validation 并且确定监视值
-	std::vector<int> watching_value;
-	switch(m_gates[gate].get_type()) 
-	{
-		case Gate::Type::And:
-			for(size_t i = 0; i < m_gates[gate].get_inputs().size(); ++i)
-				watching_value.push_back(1);
-			watching_value.push_back(0);
-			break;
-		case Gate::Type::Nand:
-			for(size_t i = 0; i < m_gates[gate].get_inputs().size(); ++i)
-				watching_value.push_back(1);
-			watching_value.push_back(1);
-			break;
-		case Gate::Type::Or:
-			for(size_t i = 0; i < m_gates[gate].get_inputs().size(); ++i)
-				watching_value.push_back(0);
-			watching_value.push_back(1);
-			break;
-		case Gate::Type::Nor:
-			for(size_t i = 0; i < m_gates[gate].get_inputs().size(); ++i)
-				watching_value.push_back(0);
-			watching_value.push_back(0);
-			assert(m_gates[gate].inputs().size() >= 2);
-			break;
-		case Gate::Type::Xor:
-		case Gate::Type::Xnor:
-			assert(m_gates[gate].inputs().size() == 2);
-			break;
-		case Gate::Type::Not:
-		case Gate::Type::Buff:
-			assert(m_gates[gate].inputs().size() == 1);
-			break;
-		default:
-			assert(false);
-	}
+	// std::vector<int> watching_value;
+	// switch(m_gates[gate].get_type()) 
+	// {
+	// 	case Gate::Type::And:
+	// 		for(size_t i = 0; i < m_gates[gate].get_inputs().size(); ++i)
+	// 			watching_value.push_back(1);
+	// 		watching_value.push_back(0);
+	// 		break;
+	// 	case Gate::Type::Nand:
+	// 		for(size_t i = 0; i < m_gates[gate].get_inputs().size(); ++i)
+	// 			watching_value.push_back(1);
+	// 		watching_value.push_back(1);
+	// 		break;
+	// 	case Gate::Type::Or:
+	// 		for(size_t i = 0; i < m_gates[gate].get_inputs().size(); ++i)
+	// 			watching_value.push_back(0);
+	// 		watching_value.push_back(1);
+	// 		break;
+	// 	case Gate::Type::Nor:
+	// 		for(size_t i = 0; i < m_gates[gate].get_inputs().size(); ++i)
+	// 			watching_value.push_back(0);
+	// 		watching_value.push_back(0);
+	// 		assert(m_gates[gate].inputs().size() >= 2);
+	// 		break;
+	// 	case Gate::Type::Xor:
+	// 	case Gate::Type::Xnor:
+	// 		assert(m_gates[gate].inputs().size() == 2);
+	// 		break;
+	// 	case Gate::Type::Not:
+	// 	case Gate::Type::Buff:
+	// 		assert(m_gates[gate].inputs().size() == 1);
+	// 		break;
+	// 	default:
+	// 		assert(false);
+	// }
 	return gate;
 }
 
