@@ -27,7 +27,7 @@ struct Line
 {
 	void connect_as_input(gate_idx gate)
 	{
-		destination_gates.insert(gate);  //
+		destination_gates.insert(gate);  //存储线的输出gate
 	}
 	gate_idx source = NULL_INDEX;         // nullptr means input port
 	std::set<gate_idx> destination_gates;
